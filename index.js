@@ -23,12 +23,15 @@
 //   console.log(`${title} has${complete ? " " : " not "}been completed`);
 // };
 
-
+// we set up everything under a new task function to allow the to do list to have new tasks added easily.
 const newTask = function(title, description) {
+  // moving the previous multi array set up to a single object
   const task = {
     title: title,
     description: description,
     complete: false,
+    // moving the two functions perviously run outside of the object to be within the object
+    // this allows us to condese the code to a singular object and run it more simply using the dot method approach.
     logState: function() {
       console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
     },
@@ -44,6 +47,7 @@ const newTask = function(title, description) {
 // newTask("Clean Cat Litter"); // task 0
 // newTask("Do Laundry"); // task 1
 
+// Examples of additional tasks being added to the task object.
 const task1 = newTask("Clean Cat Litter", "Take all the 💩 out of the litter box");
 const task2 = newTask("Do Laundry", "😨");
 const task = [task1, task2];
@@ -56,10 +60,10 @@ const task = [task1, task2];
 //   task.complete = true;
 // };
 
-
+// after the refactoring all we need to do is the following to update our to do list!!
 task1.logState(); // Clean Cat Litter has not been completed
 task1.mrkcomplete();
 task1.logState(); // Clean Cat Litter has been completed
 
 
-
+console.log(task);
